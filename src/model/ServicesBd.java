@@ -23,7 +23,7 @@ public class ServicesBd implements _Model {
         connected.add(user);
     }
 
-    public void deconnexion(Utilisateurs user) {
+    public void deconnexion(_Utilisateurs user) {
         connected.remove(user);
         deconnected.add(user);
     }
