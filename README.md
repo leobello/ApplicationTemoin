@@ -16,7 +16,7 @@ l'utilisation prévu est la suivante:
   
   l'utilisateur se connecte depuis le client
   
-  les vues du package wiew s'affichent
+  les vues du package view s'affichent
   
   lors d'une interacation de l'utilisateur exemple (clique sur le bouton voir requête d'amis)
   l'information et transmise au controler qui va se charger d'apppeler les bonnes commende du model
