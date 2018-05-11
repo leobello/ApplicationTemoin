@@ -36,7 +36,7 @@ public class LoginControler implements Initializable {
     private Button btnInscription;
 
     @FXML
-    private void btnConnectAction(ActionEvent event) throws IOException, NotBoundException, SQLException, RemoteException, ClassNotFoundException {
+    private void btnConnectAction(ActionEvent event ) throws IOException, NotBoundException, SQLException, RemoteException, ClassNotFoundException {
         Client client = new Client();
         //if (client.check(inputUser.getText(), inputPassword.getText())) {
         boolean i= true;
@@ -65,5 +65,6 @@ public class LoginControler implements Initializable {
         Scene scene = new Scene(root);
         s1.setScene(scene);
         s1.show();
+
     }
 }
