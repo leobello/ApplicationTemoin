@@ -4,10 +4,9 @@ package controler;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import bd.Test;
 import client.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +19,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
 
 
 public class LoginControler implements Initializable {
@@ -36,8 +36,11 @@ public class LoginControler implements Initializable {
     private Button btnInscription;
 
     @FXML
-    private void btnConnectAction(ActionEvent event) throws IOException, NotBoundException, SQLException, RemoteException, ClassNotFoundException {
+
+    private void btnConnectAction(ActionEvent event ) throws IOException, NotBoundException,  ClassNotFoundException {
         Client client = new Client();
+        //Test.main(null);
+        client.connectUser(inputUser.getText().toString(),inputPassword.getText().toString());
         //if (client.check(inputUser.getText(), inputPassword.getText())) {
         boolean i= true;
         if(i){
@@ -59,11 +62,12 @@ public class LoginControler implements Initializable {
     }
 
     @FXML
-    private void btnInscription(ActionEvent event) throws IOException {
-        Stage s1 = (Stage) idAnchor.getScene().getWindow();
+    private void btnInscription(ActionEvent event) throws IOException, NotBoundException {
+    	Stage s1 = (Stage) idAnchor.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/view/FicheInscription.fxml"));
         Scene scene = new Scene(root);
         s1.setScene(scene);
         s1.show();
+
     }
 }

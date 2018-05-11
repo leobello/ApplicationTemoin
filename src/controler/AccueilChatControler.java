@@ -52,7 +52,7 @@ public class AccueilChatControler implements Initializable {
     @FXML
     private void deconnexion(ActionEvent event) throws IOException {
         Stage s1 = (Stage) idAnchor.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
         Scene scene = new Scene(root);
         s1.setScene(scene);
         s1.show();

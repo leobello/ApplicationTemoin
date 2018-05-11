@@ -47,5 +47,7 @@ public class ServicesBd implements _Model {
     @Override
     public int nbContent(){ return this.allContent.size(); }
 
+    
+
 
 }
