@@ -1,6 +1,6 @@
-package controler;
+package controller;
 
-public interface _Controler {
+public interface _Controller {
 
     /*
         ici récupération des données
