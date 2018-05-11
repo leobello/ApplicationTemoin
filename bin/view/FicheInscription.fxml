@@ -59,15 +59,15 @@
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin></TextField>
-            <RadioButton mnemonicParsing="false" text="Diffuseur" GridPane.rowIndex="4">
+            <RadioButton fx:id="diffuseur" mnemonicParsing="false" text="Diffuseur" GridPane.rowIndex="4">
                <padding>
                   <Insets right="15.0" />
                </padding></RadioButton>
-            <RadioButton mnemonicParsing="false" text="Utilisateur normale" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <RadioButton fx:id="normale" mnemonicParsing="false" text="Utilisateur normale" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <padding>
                   <Insets right="15.0" />
                </padding></RadioButton>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="age" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>

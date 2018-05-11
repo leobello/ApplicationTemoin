@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import client.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -26,7 +29,6 @@ import javafx.stage.Stage;
 public class FicheInscriptionController implements Initializable {
     @FXML
     private TextField login;
-
     @FXML
     private Button inscripiton;
     @FXML
@@ -35,7 +37,14 @@ public class FicheInscriptionController implements Initializable {
     private TextField couleur;
     @FXML
     private PasswordField mdp;
-
+    
+    @FXML
+    private RadioButton normale;
+    
+    @FXML
+    private RadioButton diffuseur;
+    @FXML
+    private TextField age;
     /**
      * Initializes the controller class.
      */
@@ -50,7 +59,10 @@ public class FicheInscriptionController implements Initializable {
         String log =login.getText();
         String motDePasse= mdp.getText();
         Stage s1 = (Stage) fiche.getScene().getWindow();
-
+        Client client = new Client();
+        if(normale.isSelected()) {
+        	client.inscription(log,motDePasse,motDePasse,new Integer(3),Integer.parseInt(age.getText()));
+        }
         if(log!=null && motDePasse!=null){
 
 

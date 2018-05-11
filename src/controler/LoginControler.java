@@ -40,7 +40,7 @@ public class LoginControler implements Initializable {
     private void btnConnectAction(ActionEvent event ) throws IOException, NotBoundException,  ClassNotFoundException {
         Client client = new Client();
         //Test.main(null);
-        client.connectUser();
+        client.connectUser(inputUser.getText().toString(),inputPassword.getText().toString());
         //if (client.check(inputUser.getText(), inputPassword.getText())) {
         boolean i= true;
         if(i){
@@ -63,9 +63,7 @@ public class LoginControler implements Initializable {
 
     @FXML
     private void btnInscription(ActionEvent event) throws IOException, NotBoundException {
-    	Client client = new Client();
-    	client.inscription();
-        Stage s1 = (Stage) idAnchor.getScene().getWindow();
+    	Stage s1 = (Stage) idAnchor.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/view/FicheInscription.fxml"));
         Scene scene = new Scene(root);
         s1.setScene(scene);
