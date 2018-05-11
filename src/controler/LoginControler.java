@@ -36,7 +36,8 @@ public class LoginControler implements Initializable {
     private Button btnInscription;
 
     @FXML
-    private void btnConnectAction(ActionEvent event) throws Exception {
+
+    private void btnConnectAction(ActionEvent event ) throws IOException, NotBoundException,  ClassNotFoundException {
         Client client = new Client();
         //Test.main(null);
         client.connectUser();
@@ -69,5 +70,6 @@ public class LoginControler implements Initializable {
         Scene scene = new Scene(root);
         s1.setScene(scene);
         s1.show();
+
     }
 }
