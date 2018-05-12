@@ -19,6 +19,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import serveur.Serveur;
 
 
 
@@ -38,7 +39,7 @@ public class LoginControler implements Initializable {
     @FXML
 
     private void btnConnectAction(ActionEvent event ) throws IOException, NotBoundException,  ClassNotFoundException {
-        Client client = new Client();
+    	Client client = new Client();
         //Test.main(null);
         client.connectUser(inputUser.getText().toString(),inputPassword.getText().toString());
         //if (client.check(inputUser.getText(), inputPassword.getText())) {
