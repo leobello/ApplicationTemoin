@@ -46,7 +46,7 @@ public class LoginControler implements Initializable {
         boolean i= true;
         if(i){
         	Stage s1 = (Stage) idAnchor.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/view/AccueilChat.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
             Scene scene = new Scene(root);
             s1.setScene(scene);
             s1.show();
