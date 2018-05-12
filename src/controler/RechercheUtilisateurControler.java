@@ -15,11 +15,11 @@ public class RechercheUtilisateurControler implements Initializable {
 	@FXML
 	private Image image ;
 	@FXML
-	private Label pseudo ;
+	private Label nomPrenom ;
 	@FXML
 	private Region region;
 	@FXML
-	private Button ajouer;
+	private Button ajrouer;
 
 
 	public void initialize(URL location, ResourceBundle resources) {

@@ -40,11 +40,8 @@ public class ServicesBd implements _Model {
         return connected;
     }
 
-    @Override
     public int nbDeconnecte(){ return  this.deconnected.size(); }
-    @Override
     public int nbConnecte(){ return this.connected.size(); }
-    @Override
     public int nbContent(){ return this.allContent.size(); }
 
     

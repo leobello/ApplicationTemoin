@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <ImageView fx:id="photo" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="nomPrenom" text="Nom Prenom" />
+         </children>
+         <VBox.margin>
+            <Insets left="16.0" right="16.0" top="16.0" />
+         </VBox.margin>
+      </HBox>
+      <AnchorPane fx:id="contenu" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" prefWidth="600.0" VBox.vgrow="SOMETIMES">
+         <VBox.margin>
+            <Insets left="16.0" right="16.0" />
+         </VBox.margin>
+      </AnchorPane>
+      <HBox prefHeight="30.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Button fx:id="jaime" mnemonicParsing="false" text="J'aime" />
+            <Button fx:id="afficherCommentaires" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Afficher Commentaires" />
+            <Button fx:id="partager" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" text="Partager" />
+            <Button fx:id="supp" layoutX="217.0" layoutY="10.0" mnemonicParsing="false" text="Supprimer " />
+         </children>
+         <VBox.margin>
+            <Insets left="16.0" right="16.0" />
+         </VBox.margin>
+      </HBox>
+      <VBox fx:id="listeCommentaire" prefWidth="600.0" visible="false" />
+      <TextField fx:id="commentaire" promptText="Commentaire">
+         <VBox.margin>
+            <Insets left="16.0" right="16.0" />
+         </VBox.margin>
+      </TextField>
+      <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="commenter" mnemonicParsing="false" text="Commenter" />
+         </children>
+         <VBox.margin>
+            <Insets right="16.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>
