@@ -57,7 +57,6 @@ public class LoginControler implements Initializable {
 
     }
 
-    @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }

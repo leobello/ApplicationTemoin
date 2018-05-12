@@ -25,7 +25,6 @@ public class HomeController implements Initializable{
 	@FXML
 	private Label meteo;
 	
-	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
