@@ -13,7 +13,7 @@ public class CommentaireControler implements Initializable {
 	@FXML
 	private Label pseudo;
 	@FXML
-	private Label commentaire;
+	private Label contenuCommentaire;
 	@FXML
 	private Image image;
 
@@ -23,8 +23,8 @@ public class CommentaireControler implements Initializable {
 
 	}
 	public void showCommentaireDetails(Commentaire cmt) {
-		this.pseudo.setText(cmt.getUser().getName());
-		this.commentaire.setText(cmt.getComment());
+		this.contenuCommentaire.setText(cmt.getUser().getName());
+		this.contenuCommentaire.setText(cmt.getComment());
 		//this.image = new Image(cmt.getUser().get
 
 	}
