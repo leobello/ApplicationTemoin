@@ -9,9 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import users.Utilisateurs;
 import users._Utilisateurs;
 
 public class HomeController implements Initializable{
+	public Utilisateurs useurSesion;
 	@FXML
 	private TextField rechercher;
 	@FXML
@@ -28,6 +30,8 @@ public class HomeController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
+		System.out.println(useurSesion.getName());
 	}
+	
 
 }
