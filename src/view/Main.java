@@ -1,5 +1,6 @@
 package view;
 
+import bd.Test;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,8 +21,10 @@ public class Main extends Application {
         stage.show();
         
         Parent root = FXMLLoader.load(getClass().getResource("publication.fxml"));
-*/
-        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+*/		/*Test test=new Test();
+		String[] serv=null;
+		test.main(serv);*/
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

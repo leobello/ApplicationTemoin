@@ -27,13 +27,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import users.Diffuseur;
-import users.User;
 import users.Utilisateurs;
 import users._Utilisateurs;
 
 public class HomeController implements Initializable {
-	public static ObservableList<Utilisateurs> names = FXCollections.observableArrayList();
+	public ObservableList<String> names ;
 	public Utilisateurs useurSesion;
 	@FXML
 	private TextField rechercher;
@@ -48,12 +46,14 @@ public class HomeController implements Initializable {
 	@FXML
 	private AnchorPane idAnchor;
 	@FXML
-	private ListView<Utilisateurs> friends;
+	private ListView<String> friends;
 	@FXML
 	private Label meteo;
 
-	public void initialize(URL location, ResourceBundle resources) {
-				 
+	@FXML
+	public void initialize() {
+		friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
 	}
 
 	/**
@@ -63,10 +63,11 @@ public class HomeController implements Initializable {
 
 	public void getUser(Utilisateurs usr) throws RemoteException {
 		this.useurSesion = usr;
-		friends=new ListView<Utilisateurs>();
-		this.names.addAll((Collection<? extends Utilisateurs>) this.useurSesion.friends);
-		friends.setItems(this.names);
-		friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		friends.getItems().clear();
+		for(_Utilisateurs us: useurSesion.friends) {
+			friends.getItems().add(us.getName());
+		}
+
 	}
 
 	@FXML
@@ -125,5 +126,10 @@ public class HomeController implements Initializable {
 			event.consume();
 			s.show();
 		}
+	}
+
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
 	}
 }
