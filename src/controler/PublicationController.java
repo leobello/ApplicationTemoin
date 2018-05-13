@@ -109,11 +109,7 @@ public class PublicationController implements Initializable{
      * @param resources The resources used to localize the root object, or <tt>null</tt> if
      */
     public void initialize(URL location, ResourceBundle resources) {
-
-
-
-
-
+        // File file = new File(contenu.getContenu().getPath());
 
         File file = new File("/home/near/IdeaProjects/ApplicationTemoin/ressources/image.jpg");
         Image image = new Image(file.toURI().toString());
