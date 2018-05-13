@@ -76,7 +76,7 @@
                               <Insets />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="publier" mnemonicParsing="false" text="Publier" />
+                        <Button fx:id="publier" mnemonicParsing="false" onAction="#publier" text="Publier" />
                      </children>
                   </HBox>
                   <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">

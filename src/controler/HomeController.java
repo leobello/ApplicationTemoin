@@ -1,5 +1,6 @@
 package controler;
 
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ResourceBundle;
@@ -8,12 +9,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import users.Utilisateurs;
 import users._Utilisateurs;
 
@@ -30,12 +37,18 @@ public class HomeController implements Initializable{
 	@FXML
 	private Button publier;
 	@FXML
-	private ListView<_Utilisateurs> friends;
+	private VBox idVB;
+	@FXML
+	private ListView<String> friends;
 	@FXML
 	private Label meteo;
 	
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		friends=new ListView<String>();
+    	//names.add(this.useurSesion.getName());
+    	friends.getItems().addAll("amine","amal","zaki");
+    	friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 	}
 	
 	public void getUser(Utilisateurs usr) throws RemoteException {
@@ -45,7 +58,15 @@ public class HomeController implements Initializable{
 	}
 
     @FXML
-    private void listAmis(ActionEvent event) {
-    	//names.addAll(this.useurSesion.fr)
+    private void publier(ActionEvent event) throws IOException {
+    	 Stage s = (Stage) idVB.getScene().getWindow();
+    	 Parent root = FXMLLoader.load(getClass().getResource("/view/publication.fxml"));
+         Scene scene = new Scene(root);
+         s.setScene(scene);
+         s.show();
+    }
+    
+    public void listerAmis() throws RemoteException {
+    	
     }
 }

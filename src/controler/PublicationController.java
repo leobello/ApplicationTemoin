@@ -1,12 +1,21 @@
 package controler;
 
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
-public class PublicationController {
-
+public class PublicationController implements Initializable{
+	@FXML
+	private ImageView photo;
+	@FXML
+	private Label nomPrenom;
     @FXML
     private Button jaime;
     @FXML
@@ -38,6 +47,11 @@ public class PublicationController {
     public void comment(){
 
     }
+
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 
