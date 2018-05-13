@@ -41,7 +41,19 @@ public class LoginControler implements Initializable {
     	Client client = new Client();
         //Test.main(null);
     	Utilisateurs usr=client.connectUser(inputUser.getText().toString(),inputPassword.getText().toString());
+        /*
+            ici Mouataz il faudrait serialiser usr
+            dans un fichier
 
+            et dans services BD
+            écrire une fonction cette fonction:
+
+            Utilisateurs getCurrentUser();
+
+            qui permets de récupérer l'utilisateur dans le fichier
+
+
+         */
     	FXMLLoader loader=new FXMLLoader();
     	loader.setLocation(getClass().getResource("/view/home.fxml"));
         //if(user!=null){
