@@ -1,56 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" 
-   fx:controller="controler.PublicationController">
-   <children>
-      <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="200.0" spacing="20.0">
-         <children>
-            <ImageView fx:id="photo" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="nomPrenom" text="Nom Prenom" />
-         </children>
-         <VBox.margin>
-            <Insets left="16.0" right="16.0" top="16.0" />
-         </VBox.margin>
-      </HBox>
-      <AnchorPane fx:id="contenu" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" prefWidth="600.0" VBox.vgrow="SOMETIMES">
-         <VBox.margin>
-            <Insets left="16.0" right="16.0" />
-         </VBox.margin>
-      </AnchorPane>
-      <HBox prefHeight="30.0" prefWidth="200.0" spacing="10.0">
-         <children>
-            <Button fx:id="jaime" mnemonicParsing="false" text="J'aime" onAction="#like" />
-            <Button fx:id="afficherCommentaires" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Afficher Commentaires" onAction="#printComment"/>
-            <Button fx:id="partager" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" text="Partager" onAction="#share"/>
-            <Button fx:id="supp" layoutX="217.0" layoutY="10.0" mnemonicParsing="false" text="Supprimer " onAction="#del"/>
-         </children>
-         <VBox.margin>
-            <Insets left="16.0" right="16.0" />
-         </VBox.margin>
-      </HBox>
-      <VBox fx:id="listeCommentaire" prefWidth="600.0" visible="false" />
-      <TextField fx:id="commentaire" promptText="Commentaire">
-         <VBox.margin>
-            <Insets left="16.0" right="16.0" />
-         </VBox.margin>
-      </TextField>
-      <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="commenter" mnemonicParsing="false" text="Commenter" onAction="#comment"/>
-         </children>
-         <VBox.margin>
-            <Insets right="16.0" />
-         </VBox.margin>
-      </HBox>
-   </children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1173.0" prefWidth="1375.0" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controler.PublicationController">
+  <children>
+    <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="200.0" spacing="20.0">
+      <children>
+        <Label fx:id="nomPrenom" text="Nom Prenom" />
+      </children>
+      <VBox.margin>
+        <Insets left="16.0" right="16.0" top="16.0" />
+      </VBox.margin>
+    </HBox>
+    <AnchorPane fx:id="pane" minHeight="1000.0" minWidth="1200.0" VBox.vgrow="SOMETIMES">
+      <children>
+        <ImageView fx:id="photo" pickOnBounds="true" preserveRatio="true" rotate="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      </children>
+      <VBox.margin>
+        <Insets left="16.0" right="16.0" />
+      </VBox.margin>
+    </AnchorPane>
+    <VBox fx:id="listeCommentaire" prefWidth="600.0" visible="false" />
+    <HBox prefHeight="30.0" prefWidth="984.0" spacing="10.0">
+      <children>
+        <Button fx:id="jaime" mnemonicParsing="false" onAction="#like" text="J'aime">
+          <HBox.margin>
+            <Insets left="50.0" />
+          </HBox.margin>
+        </Button>
+        <Button fx:id="afficherCommentaires" mnemonicParsing="false" onAction="#printComment" text="Afficher Commentaires" />
+        <Button fx:id="partager" mnemonicParsing="false" onAction="#share" text="Partager" />
+        <Button fx:id="supp" mnemonicParsing="false" onAction="#del" text="Supprimer " />
+      </children>
+      <VBox.margin>
+        <Insets />
+      </VBox.margin>
+    </HBox>
+    <HBox alignment="TOP_LEFT" prefHeight="30.0" prefWidth="200.0">
+      <children>
+        <HBox id="HBox" alignment="CENTER" prefHeight="30.0" prefWidth="884.0" spacing="5.0">
+          <children>
+            <TextField fx:id="commentaire" prefWidth="690.0" promptText="Commentaire">
+              <HBox.margin>
+                <Insets left="10.0" />
+              </HBox.margin>
+            </TextField>
+            <Button fx:id="commenter" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#comment" text="Commenter" textAlignment="LEFT" />
+          </children>
+        </HBox>
+      </children>
+      <VBox.margin>
+        <Insets right="16.0" />
+      </VBox.margin>
+    </HBox>
+  </children>
 </VBox>
