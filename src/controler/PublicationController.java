@@ -39,6 +39,7 @@ import javax.imageio.ImageIO;
 public class PublicationController implements Initializable{
 
 
+
     private Utilisateurs userSession;
     private Contenu contenu;
 
@@ -134,6 +135,8 @@ public class PublicationController implements Initializable{
 		//this.rechercher.setText(this.useurSesion.getName());
 	}
 
+
+	
 
 
 

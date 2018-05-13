@@ -15,10 +15,13 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
         Parent root = FXMLLoader.load(getClass().getResource("commentaire.fxml"));
-        stage.show();*/
+        stage.show();
         
         Parent root = FXMLLoader.load(getClass().getResource("publication.fxml"));
+*/
+        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
