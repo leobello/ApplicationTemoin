@@ -75,13 +75,13 @@
                               <Insets right="10.0" />
                            </VBox.margin>
                            <children>
-                              <Button fx:id="telecharger" mnemonicParsing="false" text="Contenu Publique">
+                              <Button fx:id="contenuPub" mnemonicParsing="false" onAction="#contenuPublic" text="Contenu Publique">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="publier" mnemonicParsing="false" onAction="#publier" text="Contenu Privé" />
-                              <Button mnemonicParsing="false" text="Publier Photo" />
+                              <Button fx:id="contenuPriv" mnemonicParsing="false" onAction="#contenuPrive" text="Contenu Privé" />
+                              <Button fx:id="publier" mnemonicParsing="false" text="Publier Photo" onAction="#publier" />
                            </children>
                         </HBox>
                         <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">

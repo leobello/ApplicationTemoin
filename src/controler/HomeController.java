@@ -38,9 +38,11 @@ public class HomeController implements Initializable {
 	@FXML
 	private TextArea statusText;
 	@FXML
-	private Button telecharger;
+	private Button contenuPriv;
 	@FXML
 	private Button publier;
+	@FXML
+	private Button contenuPub;
 	@FXML
 	private AnchorPane idAnchor;
 	@FXML
@@ -86,6 +88,17 @@ public class HomeController implements Initializable {
 		s.setScene(scene);
 		s.show();
 	}
+
+	@FXML
+    private void contenuPrive(){
+
+    }
+
+	@FXML
+    private void contenuPublic(){
+
+    }
+
 
 	@FXML
 	public void chercher(KeyEvent event) throws RemoteException {
