@@ -1,40 +1,33 @@
 package controler;
 
 
-<<<<<<< HEAD
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-=======
+
 import contenu.Contenu;
->>>>>>> branch 'master' of https://github.com/leobello/ApplicationTemoin.git
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-<<<<<<< HEAD
 import javafx.scene.image.ImageView;
-=======
 import users.Utilisateurs;
->>>>>>> branch 'master' of https://github.com/leobello/ApplicationTemoin.git
 
-<<<<<<< HEAD
-public class PublicationController implements Initializable{
-	@FXML
-	private ImageView photo;
-	@FXML
-	private Label nomPrenom;
-=======
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 public class PublicationController implements Initializable{
+
 
     private Utilisateurs userSession;
     private Contenu contenu;
 
->>>>>>> branch 'master' of https://github.com/leobello/ApplicationTemoin.git
+    @FXML
+    private ImageView photo;
+    @FXML
+    private Label nomPrenom;
     @FXML
     private Button jaime;
     @FXML
@@ -53,7 +46,7 @@ public class PublicationController implements Initializable{
         this.userSession.liker(contenu);
     }
 
-    public void printComment(
+    public void printComment(){
 
 
     }
@@ -68,11 +61,6 @@ public class PublicationController implements Initializable{
     public void comment(){
 
     }
-
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
     /**
