@@ -67,7 +67,7 @@ public class FicheInscriptionController implements Initializable {
         if(log!=null && motDePasse!=null){
 
 
-            Parent root = FXMLLoader.load(getClass().getResource("/view/AccueilChat.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
             Scene scene = new Scene(root);
             s1.setScene(scene);
             s1.show();

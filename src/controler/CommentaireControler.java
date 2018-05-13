@@ -30,7 +30,7 @@ public class CommentaireControler implements Initializable {
 	private int indice;
 
 	private Contenu contenu;
-    private ArrayList<Commentaire> commentaires = new ArrayList<>();
+    private ArrayList<Commentaire> commentaires = new ArrayList<Commentaire>();
 
 
 	public void initialize(URL location, ResourceBundle resources) {
@@ -44,7 +44,6 @@ public class CommentaireControler implements Initializable {
         c.addComment(com1);
         c.addComment(com2);
 	    this.contenu = c;
-        /*       */
 	    try {
 
             loadComment();

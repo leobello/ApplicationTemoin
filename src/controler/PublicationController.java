@@ -100,6 +100,7 @@ public class PublicationController implements Initializable{
         // File file = new File(contenu.getContenu().getPath());
 
         File file = new File("ressources/image.jpg");
+        File file1 = new File("ressources/image.jpg");
         Image image = new Image(file.toURI().toString());
         //photo.setFitHeight(image.getHeight());
         //photo.setFitWidth(image.getWidth());
@@ -107,14 +108,7 @@ public class PublicationController implements Initializable{
         pane.setPrefHeight(image.getHeight());
         photo.setImage(image);
         this.nomPrenom.setText("hello");
-        /*
-        try {
-            this.nomPrenom.setText(userSession.getName());
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        */
-
+       
 
     }
     public Utilisateurs getUserSession(){return this.userSession;}
