@@ -75,7 +75,7 @@ public class HomeController implements Initializable {
 				 
 
 
-	/**
+	/*
 	 * @param usr
 	 * @throws RemoteException
 	 */
