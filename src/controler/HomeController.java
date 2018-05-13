@@ -3,6 +3,7 @@ package controler;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.Collection;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -25,7 +26,7 @@ import users.Utilisateurs;
 import users._Utilisateurs;
 
 public class HomeController implements Initializable{
-	 public static final ObservableList names = 
+	public static final ObservableList names = 
 		        FXCollections.observableArrayList();
 	public Utilisateurs useurSesion;
 	@FXML
@@ -39,15 +40,16 @@ public class HomeController implements Initializable{
 	@FXML
 	private VBox idVB;
 	@FXML
-	private ListView<String> friends;
+	private ListView<Utilisateurs> friends;
 	@FXML
 	private Label meteo;
 	
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		friends=new ListView<String>();
+		friends=new ListView<Utilisateurs>();
     	//names.add(this.useurSesion.getName());
-    	friends.getItems().addAll("amine","amal","zaki");
+		
+    	friends.getItems().addAll((Collection<? extends Utilisateurs>) this.useurSesion.friends);
     	friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 	}
 	
@@ -64,9 +66,5 @@ public class HomeController implements Initializable{
          Scene scene = new Scene(root);
          s.setScene(scene);
          s.show();
-    }
-    
-    public void listerAmis() throws RemoteException {
-    	
     }
 }
