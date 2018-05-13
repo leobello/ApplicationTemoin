@@ -19,11 +19,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import users.Diffuseur;
+import users.User;
 import users.Utilisateurs;
 
 
 
-public class LoginControler implements Initializable { 
+public class LoginControler implements Initializable {
     @FXML
     private Button btnConnexion;
     @FXML
@@ -41,6 +43,11 @@ public class LoginControler implements Initializable {
     	Client client = new Client();
         //Test.main(null);
     	Utilisateurs usr=client.connectUser(inputUser.getText().toString(),inputPassword.getText().toString());
+    	if(usr.getClass().getName().equals("Diffuseur")) {
+			usr=new Diffuseur(usr.getName(),usr.getPassword());
+		}else if(usr.getClass().getName().equals("User")){
+			usr=new User(usr.getName(), usr.getPassword(), 20);
+		}
     	FXMLLoader loader=new FXMLLoader();
     	loader.setLocation(getClass().getResource("/view/home.fxml"));
         //if(user!=null){
