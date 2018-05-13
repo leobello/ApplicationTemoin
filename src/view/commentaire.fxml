@@ -5,15 +5,14 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="600.0" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controler.CommentaireControler">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="600.0" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controler.CommentaireControler">
   <children>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="591.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="91.0" prefWidth="590.0">
       <children>
         <HBox layoutX="0.0" layoutY="0.0" prefHeight="80.0" prefWidth="590.0">
           <children>
@@ -23,6 +22,16 @@
         </HBox>
       </children>
     </AnchorPane>
+    <HBox prefHeight="34.0" prefWidth="590.0">
+      <children>
+        <HBox id="HBox" alignment="CENTER" spacing="5.0">
+          <children>
+            <Button fx:id="precedent" mnemonicParsing="false" text="précédent" onAction="#precedentEvent" />
+            <Button fx:id="suivant" mnemonicParsing="false" text="suivant" onAction="#suivantEvent"/>
+          </children>
+        </HBox>
+      </children>
+    </HBox>
   </children>
   <padding>
     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
