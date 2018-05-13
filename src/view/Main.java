@@ -18,7 +18,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("commentaire.fxml"));
         stage.show();*/
         
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("publication.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

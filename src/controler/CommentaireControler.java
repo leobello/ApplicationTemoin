@@ -44,7 +44,6 @@ public class CommentaireControler implements Initializable {
         c.addComment(com1);
         c.addComment(com2);
 	    this.contenu = c;
-        /*       */
 	    try {
 
             loadComment();
