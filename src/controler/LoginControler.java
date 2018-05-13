@@ -2,8 +2,10 @@ package controler;
 
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 import client.Client;
 import javafx.event.ActionEvent;
@@ -21,8 +23,7 @@ import users.Utilisateurs;
 
 
 
-public class LoginControler implements Initializable {
-	public static Utilisateurs usr; 
+public class LoginControler implements Initializable { 
     @FXML
     private Button btnConnexion;
     @FXML
@@ -36,21 +37,26 @@ public class LoginControler implements Initializable {
 
     @FXML
 
-    private void btnConnectAction(ActionEvent event ) throws IOException, NotBoundException,  ClassNotFoundException {
+    private void btnConnectAction(ActionEvent event ) throws  NotBoundException,  ClassNotFoundException, MalformedURLException, RemoteException {
     	Client client = new Client();
         //Test.main(null);
-    	usr=client.connectUser(inputUser.getText().toString(),inputPassword.getText().toString());
+    	Utilisateurs usr=client.connectUser(inputUser.getText().toString(),inputPassword.getText().toString());
     	FXMLLoader loader=new FXMLLoader();
     	loader.setLocation(getClass().getResource("/view/home.fxml"));
         //if(user!=null){
-    	loader.load();
-    	HomeController home=(HomeController)loader.getController();
-    	home.useurSesion=usr;
+    	try {
+			loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	HomeController home=loader.getController();
+    	home.getUser(usr);
     	//System.out.println(user.getName());
     	Stage s1 = (Stage) idAnchor.getScene().getWindow();
     	Parent root = loader.getRoot();
     	Scene scene = new Scene(root);
-    	s1.setScene(scene);    
+    	s1.setScene(scene);
         s1.show();
         /*} else {
             inputUser.setText("");

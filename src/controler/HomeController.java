@@ -29,9 +29,9 @@ public class HomeController implements Initializable{
 	
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
-		System.out.println(useurSesion.getName());
 	}
 	
-
+	public void getUser(Utilisateurs usr) {
+		this.useurSesion=usr;
+	}
 }

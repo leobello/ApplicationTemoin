@@ -1,6 +1,7 @@
 package controler;
 
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 import contenu.Commentaire;
@@ -23,7 +24,12 @@ public class CommentaireControler implements Initializable {
 
 	}
 	public void showCommentaireDetails(Commentaire cmt) {
-		this.contenuCommentaire.setText(cmt.getUser().getName());
+		try {
+			this.contenuCommentaire.setText(cmt.getUser().getName());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.contenuCommentaire.setText(cmt.getComment());
 		//this.image = new Image(cmt.getUser().get
 

@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="controler.PublicationController">
    <children>
       <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="200.0" spacing="20.0">
          <children>
@@ -28,10 +29,10 @@
       </AnchorPane>
       <HBox prefHeight="30.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Button fx:id="jaime" mnemonicParsing="false" text="J'aime" />
-            <Button fx:id="afficherCommentaires" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Afficher Commentaires" />
-            <Button fx:id="partager" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" text="Partager" />
-            <Button fx:id="supp" layoutX="217.0" layoutY="10.0" mnemonicParsing="false" text="Supprimer " />
+            <Button fx:id="jaime" mnemonicParsing="false" text="J'aime" onAction="#like" />
+            <Button fx:id="afficherCommentaires" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Afficher Commentaires" onAction="#printComment"/>
+            <Button fx:id="partager" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" text="Partager" onAction="#share"/>
+            <Button fx:id="supp" layoutX="217.0" layoutY="10.0" mnemonicParsing="false" text="Supprimer " onAction="#del"/>
          </children>
          <VBox.margin>
             <Insets left="16.0" right="16.0" />
@@ -45,7 +46,7 @@
       </TextField>
       <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="200.0">
          <children>
-            <Button fx:id="commenter" mnemonicParsing="false" text="Commenter" />
+            <Button fx:id="commenter" mnemonicParsing="false" text="Commenter" onAction="#comment"/>
          </children>
          <VBox.margin>
             <Insets right="16.0" />
