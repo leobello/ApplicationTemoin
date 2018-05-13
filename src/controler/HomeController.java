@@ -1,6 +1,8 @@
 package controler;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.NotBoundException;
@@ -31,6 +33,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.ServicesBd;
 import services.Privee;
+import stockage.Serialization;
 import users.Diffuseur;
 import users.User;
 import users.Utilisateurs;
@@ -59,6 +62,7 @@ public class HomeController implements Initializable {
     private TextField pathPhoto;
 
 	private ArrayList<Contenu> contenuPrive;
+	private File file = new File("ressources/contenues.txt");
 
 	public void initialize(URL location, ResourceBundle resources) {
 
@@ -113,27 +117,13 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    public void publier(){
+    public void publier() throws IOException {
         Photo pic = new Photo(pathPhoto.getText());
-        Contenu c = new Contenu(pic,useurSesion,new Privee());
-        //this.contenuPrive.add(c);
-
-        /*
-
-            ici serialiser le contenu dans ressources/contenues.txt
-
-
-        */
-
-
-
-
+        Contenu c = new Contenu(pic, useurSesion, new Privee());
+        contenuPrive.add(c);
+        new Serialization(this.file, this.contenuPriv);
+        pathPhoto.clear();
     }
-
-
-
-
-
 
 	@FXML
     private void contenuPublic(){
