@@ -40,6 +40,8 @@ public class LoginControler implements Initializable {
     	Client client = new Client();
         //Test.main(null);
     	usr=client.connectUser(inputUser.getText().toString(),inputPassword.getText().toString());
+        //insérer la sérialization de usr ici
+
     	FXMLLoader loader=new FXMLLoader();
     	loader.setLocation(getClass().getResource("/view/home.fxml"));
         //if(user!=null){
