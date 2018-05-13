@@ -34,7 +34,8 @@ public class PublicationController implements Initializable{
         this.userSession.liker(contenu);
     }
 
-    public void printComment(){
+    public void printComment(
+
 
     }
 
