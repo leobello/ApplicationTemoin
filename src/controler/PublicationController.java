@@ -129,6 +129,7 @@ public class PublicationController implements Initializable{
 
 
     }
+    public Utilisateurs getUserSession(){return this.userSession;}
     public void getUser(Utilisateurs usr) throws RemoteException {
 		this.userSession=usr;
 		System.out.println(this.userSession.getName());
