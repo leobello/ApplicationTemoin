@@ -40,7 +40,7 @@ import users.Utilisateurs;
 import users._Utilisateurs;
 
 public class HomeController implements Initializable {
-	public static ObservableList<Utilisateurs> names = FXCollections.observableArrayList();
+	public ObservableList<String> names ;
 	public Utilisateurs useurSesion;
 	@FXML
 	private TextField rechercher;
@@ -55,7 +55,7 @@ public class HomeController implements Initializable {
 	@FXML
 	private AnchorPane idAnchor;
 	@FXML
-	private ListView<Utilisateurs> friends;
+	private ListView<String> friends;
 	@FXML
 	private Label meteo;
 	@FXML
@@ -64,28 +64,31 @@ public class HomeController implements Initializable {
 	private ArrayList<Contenu> contenuPrive;
 	private File file = new File("ressources/contenues.txt");
 
-	public void initialize(URL location, ResourceBundle resources) {
-
-		// TODO Auto-generated method stub
-
-		 
+	@FXML
+	public void initialize() {
+		friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 	}
+<<<<<<< HEAD
 
 
 				 
 
 
 	/*
+=======
+	/**
+>>>>>>> 1fc7afd4fd9f923f442d27edb23f259cc5be2b23
 	 * @param usr
 	 * @throws RemoteException
 	 */
 
 	public void getUser(Utilisateurs usr) throws RemoteException {
 		this.useurSesion = usr;
-		friends=new ListView<Utilisateurs>();
-		this.names.addAll((Collection<? extends Utilisateurs>) this.useurSesion.friends);
-		friends.setItems(this.names);
-		friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		friends.getItems().clear();
+		for(_Utilisateurs us: useurSesion.friends) {
+			friends.getItems().add(us.getName());
+		}
+
 	}
     /*
 	@FXML
@@ -158,5 +161,10 @@ public class HomeController implements Initializable {
 			event.consume();
 			s.show();
 		}
+	}
+
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
 	}
 }
