@@ -1,8 +1,6 @@
 package controler;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.NotBoundException;
@@ -61,26 +59,13 @@ public class HomeController implements Initializable {
 	@FXML
     private TextField pathPhoto;
 
-	private ArrayList<Contenu> contenuPrive;
+	private ArrayList<Contenu> contenuPrive = new ArrayList<>();
 	private File file = new File("ressources/contenues.txt");
 
 	@FXML
 	public void initialize() {
 		friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 	}
-<<<<<<< HEAD
-
-
-				 
-
-
-	/*
-=======
-	/**
->>>>>>> 1fc7afd4fd9f923f442d27edb23f259cc5be2b23
-	 * @param usr
-	 * @throws RemoteException
-	 */
 
 	public void getUser(Utilisateurs usr) throws RemoteException {
 		this.useurSesion = usr;
@@ -124,8 +109,15 @@ public class HomeController implements Initializable {
         Photo pic = new Photo(pathPhoto.getText());
         Contenu c = new Contenu(pic, useurSesion, new Privee());
         contenuPrive.add(c);
-        new Serialization(this.file, this.contenuPriv);
-        pathPhoto.clear();
+        try {
+            FileOutputStream fos = new FileOutputStream(this.file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(this.contenuPrive);
+            oos.close();
+            fos.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
     }
 
 	@FXML

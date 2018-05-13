@@ -15,9 +15,12 @@ import javafx.scene.layout.AnchorPane;
 import users.Utilisateurs;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -97,18 +100,41 @@ public class PublicationController implements Initializable{
      * @param resources The resources used to localize the root object, or <tt>null</tt> if
      */
     public void initialize(URL location, ResourceBundle resources) {
-        // File file = new File(contenu.getContenu().getPath());
-
+        ArrayList<Contenu> arraylist= new ArrayList();
+        try
+        {
+            FileInputStream fis = new FileInputStream("ressources/contenues.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            arraylist = (ArrayList) ois.readObject();
+            this.contenu = arraylist.get(0);
+            ois.close();
+            fis.close();
+            String path = this.contenu.getContenu().getPath();
+            final String imageURI = new File(path).toURI().toString();
+            Image image = new Image(imageURI);
+            pane.setPrefWidth(image.getWidth());
+            pane.setPrefHeight(image.getHeight());
+            photo.setImage(image);
+            this.nomPrenom.setText(this.contenu.getContenu().getPath() );
+        }catch(IOException ioe){
+            ioe.printStackTrace();
+            return;
+        }catch(ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
+        /*
         File file = new File("ressources/image.jpg");
         File file1 = new File("ressources/image.jpg");
-        Image image = new Image(file.toURI().toString());
+
         //photo.setFitHeight(image.getHeight());
         //photo.setFitWidth(image.getWidth());
         pane.setPrefWidth(image.getWidth());
         pane.setPrefHeight(image.getHeight());
         photo.setImage(image);
         this.nomPrenom.setText("hello");
-       
+        */
 
     }
     public Utilisateurs getUserSession(){return this.userSession;}
