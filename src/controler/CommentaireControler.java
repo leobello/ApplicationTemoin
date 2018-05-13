@@ -30,7 +30,7 @@ public class CommentaireControler implements Initializable {
 	private int indice;
 
 	private Contenu contenu;
-    private ArrayList<Commentaire> commentaires = new ArrayList<>();
+    private ArrayList<Commentaire> commentaires = new ArrayList<Commentaire>();
 
 
 	public void initialize(URL location, ResourceBundle resources) {

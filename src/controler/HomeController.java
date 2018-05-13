@@ -1,7 +1,9 @@
 package controler;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,7 +33,7 @@ import users.Utilisateurs;
 import users._Utilisateurs;
 
 public class HomeController implements Initializable {
-	public static ObservableList names = FXCollections.observableArrayList();
+	public static ObservableList<Utilisateurs> names = FXCollections.observableArrayList();
 	public Utilisateurs useurSesion;
 	@FXML
 	private TextField rechercher;
@@ -44,29 +46,25 @@ public class HomeController implements Initializable {
 	@FXML
 	private AnchorPane idAnchor;
 	@FXML
-	private ListView<String> friends;
+	private ListView<Utilisateurs> friends;
 	@FXML
 	private Label meteo;
 
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-		 
+				 
 	}
+
+	/**
+	 * @param usr
+	 * @throws RemoteException
+	 */
 
 	public void getUser(Utilisateurs usr) throws RemoteException {
 		this.useurSesion = usr;
-		friends=new ListView<String>();
-		//names.add(this.useurSesion.getName()); 
-		this.useurSesion.friends.add(new User("amine","159",20));
-		ArrayList<String> amins=new ArrayList<String>();
-		for(_Utilisateurs usre:this.useurSesion.friends) {
-			amins.add(usre.getName());
-		}
-		friends.getItems().addAll((Collection<? extends String>)amins);
+		friends=new ListView<Utilisateurs>();
+		this.names.addAll((Collection<? extends Utilisateurs>) this.useurSesion.friends);
+		friends.setItems(this.names);
 		friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-		//System.out.println(this.useurSesion.getName());
-		// this.rechercher.setText(this.useurSesion.getName());
 	}
 
 	@FXML
@@ -88,7 +86,7 @@ public class HomeController implements Initializable {
 	}
 
 	@FXML
-	public void chercher(KeyEvent event) throws RemoteException {
+	public void chercher(KeyEvent event) throws RemoteException, MalformedURLException, NotBoundException {
 		Users serv = new Users();
 		//String nom=this.rechercher.getText();
 		if (event.getCode() == KeyCode.ENTER) {
@@ -107,7 +105,8 @@ public class HomeController implements Initializable {
 			/*System.out.println(this.rechercher.getText());
 			System.out.println(serv.getIndexOfUser("amalm"));
 			System.out.println("trouve "+serv.getUser("amalm").getName());*/
-			pub.getUserSearched(serv.getUser(this.rechercher.getText()));
+			pub.getUserSearched(this.useurSesion.searchUser((this.rechercher.getText())));
+			pub.getUser(this.useurSesion);
 			Scene scene = new Scene((Parent) loader.getRoot());
 			s.setScene(scene);
 			event.consume();

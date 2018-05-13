@@ -114,6 +114,7 @@ public class PublicationController implements Initializable{
         // File file = new File(contenu.getContenu().getPath());
 
         File file = new File("/home/near/IdeaProjects/ApplicationTemoin/ressources/image.jpg");
+        File file1 = new File("ressources/image.jpg");
         Image image = new Image(file.toURI().toString());
         //photo.setFitHeight(image.getHeight());
         //photo.setFitWidth(image.getWidth());
