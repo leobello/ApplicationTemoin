@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class ServicesBd implements _Model {
 
     private ArrayList<_Utilisateurs> deconnected;
+
     private ArrayList<_Utilisateurs> connected;
     private ArrayList<Contenu> allContent;
 

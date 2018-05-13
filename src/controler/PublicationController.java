@@ -39,6 +39,7 @@ import javax.imageio.ImageIO;
 public class PublicationController implements Initializable{
 
 
+
     private Utilisateurs userSession;
     private Contenu contenu;
 
@@ -113,7 +114,7 @@ public class PublicationController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         // File file = new File(contenu.getContenu().getPath());
 
-        File file = new File("/home/near/IdeaProjects/ApplicationTemoin/ressources/image.jpg");
+        File file = new File("ressources/image.jpg");
         Image image = new Image(file.toURI().toString());
         //photo.setFitHeight(image.getHeight());
         //photo.setFitWidth(image.getWidth());
@@ -140,6 +141,8 @@ public class PublicationController implements Initializable{
 		//this.rechercher.setText(this.useurSesion.getName());
 	}
 
+
+	
 
 
 

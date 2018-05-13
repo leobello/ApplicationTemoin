@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane fx:id="idAnchor" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.HomeController">
+<AnchorPane fx:id="idAnchor" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.HomeController">
    <children>
       <VBox prefHeight="550.0" prefWidth="700.0" spacing="20.0">
          <children>
@@ -26,7 +25,7 @@
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                   <Label fx:id="meteo" text="Météo" />
                   <Label fx:id="sport" text="Sport" />
-                  <TextField fx:id="rechercher" prefHeight="25.0" prefWidth="263.0" promptText="Rechercher" onKeyPressed="#chercher" />
+                  <TextField fx:id="rechercher" onKeyPressed="#chercher" prefHeight="25.0" prefWidth="263.0" promptText="Rechercher" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -76,12 +75,13 @@
                               <Insets right="10.0" />
                            </VBox.margin>
                            <children>
-                              <Button fx:id="telecharger" mnemonicParsing="false" text="Télécharger">
+                              <Button fx:id="telecharger" mnemonicParsing="false" text="Contenu Publique">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="publier" mnemonicParsing="false" onAction="#publier" text="Publier" />
+                              <Button fx:id="publier" mnemonicParsing="false" onAction="#publier" text="Contenu Privé" />
+                              <Button mnemonicParsing="false" text="Publier Photo" />
                            </children>
                         </HBox>
                         <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
