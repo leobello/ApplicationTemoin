@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
 import bd.Users;
+import contenu.Contenu;
+import contenu.Photo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,6 +27,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.ServicesBd;
+import services.Privee;
 import users.Diffuseur;
 import users.User;
 import users.Utilisateurs;
@@ -49,12 +53,17 @@ public class HomeController implements Initializable {
 	private ListView<String> friends;
 	@FXML
 	private Label meteo;
+	@FXML
+    private TextField pathPhoto;
+
+	private ArrayList<Contenu> contenuPrive;
 
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+
 		 
 	}
+
 
 	public void getUser(Utilisateurs usr) throws RemoteException {
 		this.useurSesion = usr;
@@ -70,7 +79,7 @@ public class HomeController implements Initializable {
 		//System.out.println(this.useurSesion.getName());
 		// this.rechercher.setText(this.useurSesion.getName());
 	}
-
+    /*
 	@FXML
 	private void publier(ActionEvent event) throws IOException {
 		Stage s = (Stage) idAnchor.getScene().getWindow();
@@ -88,11 +97,39 @@ public class HomeController implements Initializable {
 		s.setScene(scene);
 		s.show();
 	}
-
+    */
 	@FXML
-    private void contenuPrive(){
+    public void contenuPrive() throws IOException {
+        this.contenuPrive = useurSesion.cleanTimeLine(useurSesion.getTimeline());
+        Stage s1 = (Stage) idAnchor.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/view/publication.fxml"));
+        Scene scene = new Scene(root);
+        s1.setScene(scene);
+        s1.show();
+    }
+
+    @FXML
+    public void publier(){
+        Photo pic = new Photo(pathPhoto.getText());
+        Contenu c = new Contenu(pic,useurSesion,new Privee());
+        //this.contenuPrive.add(c);
+
+        /*
+
+            ici serialiser le contenu dans ressources/contenues.txt
+
+
+        */
+
+
+
 
     }
+
+
+
+
+
 
 	@FXML
     private void contenuPublic(){

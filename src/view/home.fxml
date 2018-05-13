@@ -81,12 +81,13 @@
                                  </HBox.margin>
                               </Button>
                               <Button fx:id="contenuPriv" mnemonicParsing="false" onAction="#contenuPrive" text="Contenu Privé" />
-                              <Button fx:id="publier" mnemonicParsing="false" text="Publier Photo" onAction="#publier" />
+                              <Button fx:id="publier" mnemonicParsing="false" onAction="#publier" text="Publier Photo" />
                            </children>
                         </HBox>
                         <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                            <content>
-                              <VBox fx:id="publications" />
+                              <VBox fx:id="publications" prefHeight="183.0" prefWidth="512.0" />
+                              <TextField fx:id="pathPhoto" onKeyPressed="#chercher" prefHeight="25.0" prefWidth="263.0" promptText="path de la photo à publier" />
                            </content>
                         </ScrollPane>
                      </children>

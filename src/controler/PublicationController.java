@@ -2,38 +2,23 @@ package controler;
 
 
 
+import contenu.Commentaire;
+import contenu.Contenu;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import users.Utilisateurs;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ResourceBundle;
-
-
-import contenu.Commentaire;
-import contenu.Contenu;
-
-import javafx.embed.swing.SwingFXUtils;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.SnapshotParameters;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
-import javafx.scene.layout.AnchorPane;
-import users.Utilisateurs;
-
-import javafx.scene.image.ImageView;
-
-import users.Utilisateurs;
-
-import javax.imageio.ImageIO;
 
 
 public class PublicationController implements Initializable{
@@ -142,7 +127,7 @@ public class PublicationController implements Initializable{
 	}
 
 
-	
+
 
 
 

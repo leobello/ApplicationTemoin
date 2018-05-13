@@ -12,10 +12,11 @@ public class ServicesBd implements _Model {
     private ArrayList<_Utilisateurs> connected;
     private ArrayList<Contenu> allContent;
 
-    public ServicesBd(){
+    public ServicesBd(ArrayList<Contenu> contenus, Utilisateurs user){
         this.deconnected = new ArrayList<_Utilisateurs>();
         this.connected = new ArrayList<_Utilisateurs>();
-        this.allContent = new ArrayList<Contenu>();
+        this.allContent = contenus;
+        connected.add(user);
     }
 
 
@@ -27,6 +28,10 @@ public class ServicesBd implements _Model {
     public void deconnexion(_Utilisateurs user) {
         connected.remove(user);
         deconnected.add(user);
+    }
+
+    public Contenu getContenu(int i) {
+        return this.allContent.get(i);
     }
 
     public ArrayList<Contenu> getAllContent() {
