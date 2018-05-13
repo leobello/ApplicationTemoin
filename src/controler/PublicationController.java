@@ -3,6 +3,7 @@ package controler;
 
 
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 
@@ -77,8 +78,13 @@ public class PublicationController implements Initializable{
      * @param resources The resources used to localize the root object, or <tt>null</tt> if
      */
     public void initialize(URL location, ResourceBundle resources) {
-        this.userSession = getCurrentUser();
-        this.contenu = getContenu();
+        //this.contenu = getContenu();
     }
+    public void getUser(Utilisateurs usr) throws RemoteException {
+		this.userSession=usr;
+		System.out.println(this.userSession.getName());
+		this.nomPrenom.setText(this.userSession.getName());
+		//this.rechercher.setText(this.useurSesion.getName());
+	}
 
 }

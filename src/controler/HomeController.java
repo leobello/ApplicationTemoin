@@ -20,6 +20,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import users.Utilisateurs;
@@ -38,7 +39,7 @@ public class HomeController implements Initializable{
 	@FXML
 	private Button publier;
 	@FXML
-	private VBox idVB;
+	private AnchorPane idAnchor;
 	@FXML
 	private ListView<Utilisateurs> friends;
 	@FXML
@@ -49,8 +50,8 @@ public class HomeController implements Initializable{
 		friends=new ListView<Utilisateurs>();
     	//names.add(this.useurSesion.getName());
 		
-    	friends.getItems().addAll((Collection<? extends Utilisateurs>) this.useurSesion.friends);
-    	friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+    	/*friends.getItems().addAll((Collection<? extends Utilisateurs>) this.useurSesion.friends);
+    	friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);*/
 	}
 	
 	public void getUser(Utilisateurs usr) throws RemoteException {
@@ -61,10 +62,21 @@ public class HomeController implements Initializable{
 
     @FXML
     private void publier(ActionEvent event) throws IOException {
-    	 Stage s = (Stage) idVB.getScene().getWindow();
-    	 Parent root = FXMLLoader.load(getClass().getResource("/view/publication.fxml"));
-         Scene scene = new Scene(root);
-         s.setScene(scene);
-         s.show();
+    	Stage s = (Stage) idAnchor.getScene().getWindow();
+    	FXMLLoader loader=new FXMLLoader();
+     	loader.setLocation(getClass().getResource("/view/publication.fxml"));
+         //if(user!=null){
+     	try {
+ 			loader.load();
+ 		} catch (IOException e) {
+ 			// TODO Auto-generated catch block
+ 			e.printStackTrace();
+ 		}
+     	PublicationController pub=loader.getController();
+     	loader.setController(pub);
+     	pub.getUser(this.useurSesion);
+        Scene scene = new Scene((Parent) loader.getRoot());
+        s.setScene(scene);
+        s.show();
     }
 }
