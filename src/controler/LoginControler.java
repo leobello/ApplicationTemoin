@@ -51,6 +51,7 @@ public class LoginControler implements Initializable {
 			e.printStackTrace();
 		}
     	HomeController home=loader.getController();
+    	loader.setController(home);
     	home.getUser(usr);
     	//System.out.println(user.getName());
     	Stage s1 = (Stage) idAnchor.getScene().getWindow();
