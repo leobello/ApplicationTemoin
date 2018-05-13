@@ -9,12 +9,14 @@ import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 
+import contenu.Commentaire;
 import contenu.Contenu;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
@@ -83,21 +85,21 @@ public class PublicationController implements Initializable{
 
     }
     */
-    public void printComment(){
-
-
-
+    public void printComment() throws IOException {
+        // relier à commmentaire.fxml
     }
 
     public void share(){
-
+        this.userSession.publier(this.contenu);
     }
 
     public void del(){
-
+        this.userSession.delContenu(this.contenu);
     }
     public void comment(){
-
+        String txt = commentaire.getText();
+        Commentaire com = new Commentaire(this.userSession,txt);
+        contenu.addComment(com);
     }
 
     /**
