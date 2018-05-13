@@ -64,8 +64,8 @@ public class PublicationController implements Initializable{
 
     public void like() {
         this.userSession.liker(contenu);
-
     }
+
     /*
     public void loadImage() throws IOException {
         URL fxmlpath = this.getClass().getResource("view/publication.fxml");
@@ -84,6 +84,7 @@ public class PublicationController implements Initializable{
     }
     */
     public void printComment(){
+
 
 
     }
@@ -108,6 +109,12 @@ public class PublicationController implements Initializable{
      * @param resources The resources used to localize the root object, or <tt>null</tt> if
      */
     public void initialize(URL location, ResourceBundle resources) {
+
+
+
+
+
+
         File file = new File("/home/near/IdeaProjects/ApplicationTemoin/ressources/image.jpg");
         Image image = new Image(file.toURI().toString());
         //photo.setFitHeight(image.getHeight());
@@ -115,12 +122,22 @@ public class PublicationController implements Initializable{
         pane.setPrefWidth(image.getWidth());
         pane.setPrefHeight(image.getHeight());
         photo.setImage(image);
+        this.nomPrenom.setText("hello");
+        /*
+        try {
+            this.nomPrenom.setText(userSession.getName());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        */
+
 
     }
     public void getUser(Utilisateurs usr) throws RemoteException {
 		this.userSession=usr;
 		System.out.println(this.userSession.getName());
 		this.nomPrenom.setText(this.userSession.getName());
+
 		//this.rechercher.setText(this.useurSesion.getName());
 	}
 

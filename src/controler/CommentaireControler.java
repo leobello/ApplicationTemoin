@@ -6,9 +6,13 @@ import java.util.ResourceBundle;
 
 import contenu.Commentaire;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 public class CommentaireControler implements Initializable {
 	@FXML
@@ -20,7 +24,7 @@ public class CommentaireControler implements Initializable {
 
 
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+
 
 	}
 	public void showCommentaireDetails(Commentaire cmt) {
