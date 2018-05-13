@@ -26,7 +26,7 @@
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                   <Label fx:id="meteo" text="Météo" />
                   <Label fx:id="sport" text="Sport" />
-                  <TextField fx:id="rechercher" prefHeight="25.0" prefWidth="263.0" promptText="Rechercher" />
+                  <TextField fx:id="rechercher" prefHeight="25.0" prefWidth="263.0" promptText="Rechercher" onKeyPressed="#chercher" />
                </children>
                <VBox.margin>
                   <Insets />
