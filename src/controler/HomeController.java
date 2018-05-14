@@ -59,7 +59,7 @@ public class HomeController implements Initializable {
 	@FXML
     private TextField pathPhoto;
 
-	private ArrayList<Contenu> contenuPrive = new ArrayList<>();
+	private ArrayList<Contenu> contenuPrive = new ArrayList<Contenu>();
 	private File file = new File("ressources/contenues.txt");
 
 	@FXML
@@ -73,7 +73,6 @@ public class HomeController implements Initializable {
 		for(_Utilisateurs us: useurSesion.friends) {
 			friends.getItems().add(us.getName());
 		}
-
 	}
     /*
 	@FXML
