@@ -75,25 +75,7 @@ public class HomeController implements Initializable {
 		}
 
 	}
-    /*
-	@FXML
-	private void publier(ActionEvent event) throws IOException {
-		Stage s = (Stage) idAnchor.getScene().getWindow();
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/view/publication.fxml"));
-		try {
-			loader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		PublicationController pub = loader.getController();
-		loader.setController(pub);
-		pub.getUser(this.useurSesion);
-		Scene scene = new Scene((Parent) loader.getRoot());
-		s.setScene(scene);
-		s.show();
-	}
-    */
+
 	@FXML
     public void contenuPrive() throws IOException {
         this.contenuPrive = useurSesion.cleanTimeLine(useurSesion.getTimeline());
@@ -155,8 +137,17 @@ public class HomeController implements Initializable {
 		}
 	}
 
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-	}
+
+    /**
+     * Called to initialize a controller after its root element has been
+     * completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  <tt>null</tt> if the location is not known.
+     * @param resources The resources used to localize the root object, or <tt>null</tt> if
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }

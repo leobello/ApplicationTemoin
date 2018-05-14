@@ -101,6 +101,7 @@ public class PublicationController implements Initializable{
      */
     public void initialize(URL location, ResourceBundle resources) {
         ArrayList<Contenu> arraylist= new ArrayList();
+
         try
         {
             FileInputStream fis = new FileInputStream("ressources/contenues.txt");

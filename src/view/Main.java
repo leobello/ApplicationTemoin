@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.ServicesBd;
 
 public class Main extends Application {
 
@@ -24,7 +25,11 @@ public class Main extends Application {
 */		/*Test test=new Test();
 		String[] serv=null;
 		test.main(serv);*/
-        Parent root = FXMLLoader.load(getClass().getResource("publication.fxml"));
+        ServicesBd sbd = new ServicesBd();
+        
+
+
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
