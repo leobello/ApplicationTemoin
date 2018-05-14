@@ -61,7 +61,15 @@ public class HomeController implements Initializable {
 
 	private ArrayList<Contenu> contenuPrive = new ArrayList<Contenu>();
 	private File file = new File("ressources/contenues.txt");
-
+	
+	/**
+     * Called to initialize a controller after its root element has been
+     * completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  <tt>null</tt> if the location is not known.
+     * @param resources The resources used to localize the root object, or <tt>null</tt> if
+     */
 	@FXML
 	public void initialize() {
 		friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -74,25 +82,7 @@ public class HomeController implements Initializable {
 			friends.getItems().add(us.getName());
 		}
 	}
-    /*
-	@FXML
-	private void publier(ActionEvent event) throws IOException {
-		Stage s = (Stage) idAnchor.getScene().getWindow();
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/view/publication.fxml"));
-		try {
-			loader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		PublicationController pub = loader.getController();
-		loader.setController(pub);
-		pub.getUser(this.useurSesion);
-		Scene scene = new Scene((Parent) loader.getRoot());
-		s.setScene(scene);
-		s.show();
-	}
-    */
+
 	@FXML
     public void contenuPrive() throws IOException {
         this.contenuPrive = useurSesion.cleanTimeLine(useurSesion.getTimeline());
@@ -158,4 +148,8 @@ public class HomeController implements Initializable {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+    
+    
 }
