@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.ServicesBd;
+import users.User;
+import users.Utilisateurs;
 
 public class Main extends Application {
 
@@ -25,11 +27,21 @@ public class Main extends Application {
 */		/*Test test=new Test();
 		String[] serv=null;
 		test.main(serv);*/
+
         ServicesBd sbd = new ServicesBd();
-        
+        User leo = new User("leo",18);
+
+        User mouataz = new User("mouataz",18);
+        User amine = new User("amine",18);
+
+        ServicesBd sBd = new ServicesBd();
+        sbd.setUser(leo);
+        sbd.setUser(mouataz);
+        sBd.setUser(amine);
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+
+        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

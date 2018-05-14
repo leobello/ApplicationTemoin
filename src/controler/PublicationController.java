@@ -5,13 +5,18 @@ package controler;
 import contenu.Commentaire;
 import contenu.Contenu;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import model.ServicesBd;
 import users.Utilisateurs;
 
 import java.io.File;
@@ -27,9 +32,10 @@ import java.util.ResourceBundle;
 public class PublicationController implements Initializable{
 
 
-
+    private int indice;
     private Utilisateurs userSession;
     private Contenu contenu;
+    private ArrayList<Contenu> publications;
 
 
     @FXML
@@ -51,7 +57,14 @@ public class PublicationController implements Initializable{
     private TextField commentaire;
     @FXML
     private Button commenter;
-
+    @FXML
+    private Button precedent;
+    @FXML
+    private Button suivant;
+    @FXML
+    private Button retour;
+    @FXML
+    private AnchorPane anchor;
 
     public void like() {
         this.userSession.liker(contenu);
@@ -91,6 +104,22 @@ public class PublicationController implements Initializable{
         contenu.addComment(com);
     }
 
+    public void precedente(){
+        if(this.indice > 0) {
+            this.indice -= 1;
+            init(this.indice);
+        }
+    }
+
+    public void suivante(){
+        if(this.indice < this.publications.size()-1) {
+            this.indice += 1;
+            init(this.indice);
+        }
+    }
+    public void comeback() throws IOException {
+    }
+
     /**
      * Called to initialize a controller after its root element has been
      * completely processed.
@@ -100,16 +129,30 @@ public class PublicationController implements Initializable{
      * @param resources The resources used to localize the root object, or <tt>null</tt> if
      */
     public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<Contenu> arraylist= new ArrayList();
+        this.indice = 0;
+        init(this.indice);
 
+        /*
+        File file = new File("ressources/image.jpg");
+        File file1 = new File("ressources/image.jpg");
+
+        //photo.setFitHeight(image.getHeight());
+        //photo.setFitWidth(image.getWidth());
+        pane.setPrefWidth(image.getWidth());
+        pane.setPrefHeight(image.getHeight());
+        photo.setImage(image);
+        this.nomPrenom.setText("hello");
+        */
+
+    }
+
+    public void init(int i){
         try
         {
-            FileInputStream fis = new FileInputStream("ressources/contenues.txt");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            arraylist = (ArrayList) ois.readObject();
-            this.contenu = arraylist.get(0);
-            ois.close();
-            fis.close();
+            ServicesBd sBd = new ServicesBd();
+            sBd.loadContents();
+            this.contenu = sBd.getContenu(i);
+            this.publications = sBd.getAllContent();
             String path = this.contenu.getContenu().getPath();
             final String imageURI = new File(path).toURI().toString();
             Image image = new Image(imageURI);
@@ -125,19 +168,8 @@ public class PublicationController implements Initializable{
             c.printStackTrace();
             return;
         }
-        /*
-        File file = new File("ressources/image.jpg");
-        File file1 = new File("ressources/image.jpg");
-
-        //photo.setFitHeight(image.getHeight());
-        //photo.setFitWidth(image.getWidth());
-        pane.setPrefWidth(image.getWidth());
-        pane.setPrefHeight(image.getHeight());
-        photo.setImage(image);
-        this.nomPrenom.setText("hello");
-        */
-
     }
+
     public Utilisateurs getUserSession(){return this.userSession;}
     public void getUser(Utilisateurs usr) throws RemoteException {
 		this.userSession=usr;

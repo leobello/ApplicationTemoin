@@ -77,19 +77,27 @@ public class HomeController implements Initializable {
 	}
 
 	@FXML
-    public void contenuPrive() throws IOException {
-        this.contenuPrive = useurSesion.cleanTimeLine(useurSesion.getTimeline());
+    public void contenuPrive() throws IOException, ClassNotFoundException {
+
+        ServicesBd servicesBd = new ServicesBd();
+        servicesBd.loadUsers();
+        this.useurSesion = servicesBd.getUser(0);
+
+        //this.contenuPrive = useurSesion.cleanTimeLine(useurSesion.getTimeline());
         Stage s1 = (Stage) idAnchor.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/view/publication.fxml"));
         Scene scene = new Scene(root);
         s1.setScene(scene);
         s1.show();
+
     }
 
     @FXML
-    public void publier() throws IOException {
+    public void publier() throws IOException, ClassNotFoundException {
         Photo pic = new Photo(pathPhoto.getText());
         Contenu c = new Contenu(pic, useurSesion, new Privee());
+        ServicesBd sBd = new ServicesBd();
+        sBd.setContent(useurSesion,c);
         contenuPrive.add(c);
         try {
             FileOutputStream fos = new FileOutputStream(this.file);

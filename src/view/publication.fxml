@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1173.0" prefWidth="1375.0" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controler.PublicationController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1173.0" prefWidth="1375.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.PublicationController">
   <children>
     <HBox alignment="CENTER_LEFT" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" prefWidth="200.0" spacing="20.0">
       <children>
-        <Label fx:id="nomPrenom"  ></Label>
+        <Label fx:id="nomPrenom" />
       </children>
       <VBox.margin>
         <Insets left="16.0" right="16.0" top="16.0" />
@@ -33,6 +28,12 @@
       </VBox.margin>
     </AnchorPane>
     <VBox fx:id="listeCommentaire" prefWidth="600.0" visible="false" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="precedent" mnemonicParsing="false" text="precedente" onAction="#precedente" />
+            <Button fx:id="suivant" mnemonicParsing="false" text="suivante" onAction="#suivante"/>
+         </children>
+      </HBox>
     <HBox prefHeight="30.0" prefWidth="984.0" spacing="10.0">
       <children>
         <Button fx:id="jaime" mnemonicParsing="false" onAction="#like" text="J'aime">
@@ -43,6 +44,7 @@
         <Button fx:id="afficherCommentaires" mnemonicParsing="false" onAction="#printComment" text="Afficher Commentaires" />
         <Button fx:id="partager" mnemonicParsing="false" onAction="#share" text="Partager" />
         <Button fx:id="supp" mnemonicParsing="false" onAction="#del" text="Supprimer " />
+        <Button fx:id="retour" mnemonicParsing="false" onAction="#comeback" text="Retour"  />
       </children>
       <VBox.margin>
         <Insets />
