@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.ServicesBd;
 import users.Utilisateurs;
@@ -44,7 +45,8 @@ public class PublicationController implements Initializable{
     private ImageView photo;
     @FXML
     private Label nomPrenom;
-
+    @FXML
+    private VBox idVB;
     @FXML
     private Button jaime;
     @FXML
@@ -88,7 +90,11 @@ public class PublicationController implements Initializable{
     }
     */
     public void printComment() throws IOException {
-        // relier à commmentaire.fxml
+        Stage s1 = (Stage) idVB.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/view/commentaire.fxml"));
+        Scene scene = new Scene(root);
+        s1.setScene(scene);
+        s1.show();
     }
 
     public void share(){
@@ -118,6 +124,11 @@ public class PublicationController implements Initializable{
         }
     }
     public void comeback() throws IOException {
+        Stage s1 = (Stage) idVB.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
+        Scene scene = new Scene(root);
+        s1.setScene(scene);
+        s1.show();
     }
 
     /**
@@ -158,8 +169,17 @@ public class PublicationController implements Initializable{
             Image image = new Image(imageURI);
             pane.setPrefWidth(image.getWidth());
             pane.setPrefHeight(image.getHeight());
+
             photo.setImage(image);
             this.nomPrenom.setText(this.contenu.getContenu().getPath() );
+            /*
+
+            Stage s1 = (Stage) idVB.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/view/publication.fxml"));
+            Scene scene = new Scene(root);
+            s1.setScene(scene);
+            s1.show();
+            */
         }catch(IOException ioe){
             ioe.printStackTrace();
             return;
