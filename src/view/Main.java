@@ -40,8 +40,8 @@ public class Main extends Application {
         sBd.setUser(amine);
 
 
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 
-        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

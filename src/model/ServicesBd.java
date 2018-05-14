@@ -10,9 +10,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 
+
 public class ServicesBd implements _Model {
 
-
+    private ArrayList<Utilisateurs> deconnected = new ArrayList<Utilisateurs>();
     private ArrayList<Utilisateurs> users = new ArrayList<>();
     private ArrayList<Contenu> allContent = new ArrayList<>();
 

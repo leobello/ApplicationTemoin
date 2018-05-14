@@ -59,9 +59,17 @@ public class HomeController implements Initializable {
 	@FXML
     private TextField pathPhoto;
 
-	private ArrayList<Contenu> contenuPrive = new ArrayList<>();
+	private ArrayList<Contenu> contenuPrive = new ArrayList<Contenu>();
 	private File file = new File("ressources/contenues.txt");
-
+	
+	/**
+     * Called to initialize a controller after its root element has been
+     * completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  <tt>null</tt> if the location is not known.
+     * @param resources The resources used to localize the root object, or <tt>null</tt> if
+     */
 	@FXML
 	public void initialize() {
 		friends.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -73,7 +81,6 @@ public class HomeController implements Initializable {
 		for(_Utilisateurs us: useurSesion.friends) {
 			friends.getItems().add(us.getName());
 		}
-
 	}
 
 	@FXML
@@ -145,17 +152,12 @@ public class HomeController implements Initializable {
 		}
 	}
 
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    /**
-     * Called to initialize a controller after its root element has been
-     * completely processed.
-     *
-     * @param location  The location used to resolve relative paths for the root object, or
-     *                  <tt>null</tt> if the location is not known.
-     * @param resources The resources used to localize the root object, or <tt>null</tt> if
-     */
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
-    }
+    
+    
 }
